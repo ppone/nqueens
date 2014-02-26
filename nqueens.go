@@ -42,23 +42,8 @@ func validatePosition(board [][]bool, x int, y int) bool {
 		}
 	}
 
-	//check rightdiagonalup
-	for i, j := x+1, y-1; i < boardsize && j >= 0; i, j = i+1, j-1 {
-		if board[i][j] == true {
-			return false
-		}
-	}
-
 	//check leftdiagonaldown
 	for i, j := x-1, y+1; i >= 0 && j < boardsize; i, j = i-1, j+1 {
-		if board[i][j] == true {
-			return false
-		}
-	}
-
-	//check rightdiagonaldown
-
-	for i, j := x+1, y+1; i < boardsize && j < boardsize; i, j = i+1, j+1 {
 		if board[i][j] == true {
 			return false
 		}
