@@ -73,7 +73,6 @@ func nxnboardandqueensolution(n int) {
 
 func nqueens(board [][]bool, n int, startx int) int {
 	if n == 0 {
-		//printBoard(board)
 		return 1
 	}
 
