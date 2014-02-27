@@ -34,14 +34,14 @@ func validatePosition(board [][]bool, x int, y int) bool {
 		}
 	}
 
-	//check leftdiagonalup
+	//check leftDiagonalUp
 	for i, j := x-1, y-1; i >= 0 && j >= 0; i, j = i-1, j-1 {
 		if board[i][j] == true {
 			return false
 		}
 	}
 
-	//check rightdiagonalup
+	//check rightDiagonalUp
 	for i, j := x-1, y+1; i >= 0 && j < boardSize; i, j = i-1, j+1 {
 		if board[i][j] == true {
 			return false
@@ -52,19 +52,19 @@ func validatePosition(board [][]bool, x int, y int) bool {
 }
 
 func newBoard(board [][]bool) [][]bool {
-	nboard := make([][]bool, boardSize)
-	for i, _ := range nboard {
-		nboard[i] = make([]bool, boardSize)
+	nBoard := make([][]bool, boardSize)
+	for i, _ := range nBoard {
+		nBoard[i] = make([]bool, boardSize)
 	}
 
 	if board != nil {
-		copy(nboard, board)
+		copy(nBoard, board)
 	}
 
-	return nboard
+	return nBoard
 }
 
-func nxnboardandqueensolution(n int) {
+func nxnBoardAndQueenSolution(n int) {
 	boardSize = n
 	fmt.Println(n, "x", n, " board with ", n, " queens, has the following solutions")
 	fmt.Println("total of ", nQueens(newBoard(nil), 0), " solutions")
@@ -95,7 +95,7 @@ func main() {
 	n, _ := strconv.Atoi(os.Args[1])
 
 	//for i := 1; i <= n; i++ {
-	nxnboardandqueensolution(n)
+	nxnBoardAndQueenSolution(n)
 	//}
 
 }
