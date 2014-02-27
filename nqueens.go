@@ -1,5 +1,5 @@
 //@author: Parag Patel
-//this is the first version of nequeens, it has not been optimized yet. Hasn't been fully tested.
+//this is the first version of nQueens.  It runs fast, but it still not the fastest solution in Go.
 
 package main
 
