@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-var boardsize int = 3
+var boardSize int = 3
 
 func printBoard(board [][]bool) {
 	fmt.Println("<==SOLUTION==>")
@@ -42,7 +42,7 @@ func validatePosition(board [][]bool, x int, y int) bool {
 	}
 
 	//check rightdiagonalup
-	for i, j := x-1, y+1; i >= 0 && j < boardsize; i, j = i-1, j+1 {
+	for i, j := x-1, y+1; i >= 0 && j < boardSize; i, j = i-1, j+1 {
 		if board[i][j] == true {
 			return false
 		}
@@ -51,10 +51,10 @@ func validatePosition(board [][]bool, x int, y int) bool {
 	return true
 }
 
-func newboard(board [][]bool) [][]bool {
-	nboard := make([][]bool, boardsize)
+func newBoard(board [][]bool) [][]bool {
+	nboard := make([][]bool, boardSize)
 	for i, _ := range nboard {
-		nboard[i] = make([]bool, boardsize)
+		nboard[i] = make([]bool, boardSize)
 	}
 
 	if board != nil {
@@ -65,23 +65,23 @@ func newboard(board [][]bool) [][]bool {
 }
 
 func nxnboardandqueensolution(n int) {
-	boardsize = n
+	boardSize = n
 	fmt.Println(n, "x", n, " board with ", n, " queens, has the following solutions")
-	fmt.Println("total of ", nqueens(newboard(nil), 0, 0), " solutions")
+	fmt.Println("total of ", nQueens(newBoard(nil), 0), " solutions")
 }
 
-func nqueens(board [][]bool, n int, i int) int {
-	if n == boardsize {
+func nQueens(board [][]bool, n int) int {
+	if n == boardSize {
 		return 1
 	}
 
 	counter := 0
 
-	for j := i; j < boardsize; j++ {
+	for j := 0; j < boardSize; j++ {
 		if board[n][j] == false && validatePosition(board, n, j) {
 			board[n][j] = true
-			nboard := newboard(board)
-			counter += nqueens(nboard, n+1, 0)
+			nBoard := newBoard(board)
+			counter += nQueens(nBoard, n+1)
 			board[n][j] = false
 		}
 
